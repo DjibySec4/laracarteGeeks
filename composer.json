@@ -39,7 +39,8 @@
             "database/factories"
         ],
         "files":[
-            "app/Helpers/TitreDynamique.php"
+            "app/Helpers/TitreDynamique.php",
+            "app/Helpers/set_active_link.php"
         ]
     },
     "autoload-dev": {
