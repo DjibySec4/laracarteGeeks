@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Laracarte - {{ $titre }}</title>
+    <!--  titre_dynamique est une fonction hellper  -->
+    <title>Laracarte - {{ titre_dynamique($titre ?? '') }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
