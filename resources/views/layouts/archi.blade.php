@@ -24,6 +24,10 @@
             margin:2em 0; 
 
         }
+        #contact_center
+        {
+            margin-left:25%;
+        }
     </style>
 </head>
 <body>

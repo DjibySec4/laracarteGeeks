@@ -22,7 +22,7 @@
         <p>More info <a href="https://laramap.com/p/about">here.</a></p>
 
         <hr>
-
+ 
         <h2>Which tools and services are used in {{ config('app.name')}} ?</h2>
         <p>Basically it's build on Laravel & Bootstrap. But there's a bunch of services used for 
           email and other sections.</p>
