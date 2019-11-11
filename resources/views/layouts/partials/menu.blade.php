@@ -6,11 +6,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <li class="nav-item {{set_active_link('home') }}">
+    <li class="nav-item {{set_active_route('home') }}">
         <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
       </li>
 
-      <li class="nav-item  {{set_active_link('about') }}">
+      <li class="nav-item  {{set_active_route('about') }}">
         <a class="nav-link" href="{{route('about')}}">About <span class="sr-only">(current)</span></a>
       </li>
 
@@ -30,7 +30,7 @@
         </div>
       </li>
       
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Contact<span class="sr-only">(current)</span></a>
       </li>
 
@@ -38,7 +38,7 @@
 
     <ul class="nav navbar-nav navbar-right" >
 
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
       </li>
 

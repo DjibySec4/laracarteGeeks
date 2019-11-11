@@ -40,7 +40,7 @@
         ],
         "files":[
             "app/Helpers/TitreDynamique.php",
-            "app/Helpers/set_active_link.php"
+            "app/Helpers/setActiveRoute.php"
         ]
     },
     "autoload-dev": {
