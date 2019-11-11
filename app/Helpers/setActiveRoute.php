@@ -1,6 +1,6 @@
 <?php
 
-if(! function_exists('set_active_link'))
+if(! function_exists('set_active_route'))
 {
      function set_active_route($route)
      {
