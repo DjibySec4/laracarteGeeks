@@ -7,32 +7,34 @@
         <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <h2>Get in Touch </h2>
             <!-- text-muted va rendre le texte trasparent -->
-            <p class="text-muted">If you having trouble with this service, please <a href="djibysec4@gmail.com">ask for help.</a> </p>
+            <p class="text-muted">If you having trouble with this service, please <a href="{{ config('laracarte.email_admin')}}">ask for help.</a> </p>
 
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="name" class="control-label">Name</label>
-                        <input type="text" name='name' id='name' class="form-control" required='required'>
-                    </div>
+            <form action="{{ route('contact')}}" method="POST" novalidate>
+                {{ csrf_field() }}
+
+                <!-- on aapplique le has-error ssi on a un champs nommé name -->
+                <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}} ">
+                    <label for="name" class="control-label">Name</label>
+                    <input type="text" name='name' id='name' class="form-control" value="{{ old('name')}}" required='required' >
+                    {!! $errors->first('name', '<p class="help-block msg_error">:message</p>') !!}
+                </div>
+            
+                 <!-- on aapplique le has-error ssi on a un champs nommé email -->
+                <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" name='email' id='email'  class="form-control"  value="{{ old('email')}}" required='required'>
+                    {!! $errors->first('email', '<p class="help-block msg_error">:message</p>') !!}
+                </div>
+               
+                <!-- on aapplique le has-error ssi on a un champs nommé message -->
+                 <div class="form-group {{ $errors->has('message') ? 'has-error' : ''}}">
+                    <label for="message" class="control-label">Message</label>
+                    <textarea name="message" id="message" cols="10" rows="10"  required='required' class="form-control"> {{ old('message')}}</textarea>
+                    {!! $errors->first('message', '<p class="help-block msg_error">:message</p>') !!}
                 </div>
 
                 <div class="form-group">
-                    <div class="form-group">
-                        <label for="email" class="control-label">Email</label>
-                        <input type="email" name='email' id='email' class="form-control" required='required'>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="message" class="control-label">Message</label>
-                        <textarea name="message" id="message" cols="10" rows="10" required='required' class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <button class="btn btn-primary btn-block">Submit Enquiry &raquo;</button>
+                    <button type='submit' class="btn btn-primary btn-block">Submit Enquiry &raquo;</button>
                 </div>
        
              </form>

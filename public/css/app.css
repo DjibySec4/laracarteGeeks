@@ -1,0 +1,20 @@
+body
+{
+    font-family:'Open Sans', sans-serif;
+}
+
+footer
+{
+    /* margin top(2) et bottom(0)  */
+    margin:2em 0; 
+
+}
+#contact_center
+{
+    margin-left:25%;
+}
+.msg_error
+{
+    color:red;
+    font-weight:bold;
+}
