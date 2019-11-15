@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Mail;
- 
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Message;
 
-class ContactMessageCreated extends Mailable
+class ContactMessageCreated extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -20,20 +20,10 @@ class ContactMessageCreated extends Mailable
      */
 
 
-    //  nouveau
      public function __construct(Message $msg)
     {
         $this->msg = $msg;
     }
-
-    //  encien
-
-    // public function __construct($name, $email, $msg)
-    // {
-    //     $this->name = $name;
-    //     $this->email = $email;
-    //     $this->msg = $msg;
-    // }
 
     /**
      * Build the message.
@@ -42,6 +32,7 @@ class ContactMessageCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.messages.create');
+        return $this->from($this->msg->email, $this->msg->name)
+                     ->markdown('emails.messages.create');
     }
 }

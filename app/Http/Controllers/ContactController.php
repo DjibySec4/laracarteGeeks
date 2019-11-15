@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use  App\Http\Requests\ContactFormRequest;
-use  App\Mail\ContactMessageCreated;
-use Illuminate\Support\Facades\Mail;
-use  MercurySeries\Flashy\Flashy;
 use  App\Models\Message;
+use Illuminate\Http\Request;
+use  MercurySeries\Flashy\Flashy;
+use App\Mail\ContactMessageCreated;
+use Illuminate\Support\Facades\Mail;
+use  App\Http\Requests\ContactFormRequest;
 
 class ContactController extends Controller
 {
@@ -22,23 +22,11 @@ class ContactController extends Controller
 
     public function store(ContactFormRequest $request)
     {
+        // sleep(3);
         $message = Message::create($request->only('name', 'email', 'message'));
-        
-        $mailable = new ContactMessageCreated($message);
-        Mail::to(config('laracarte.email_admin'))->send($mailable);
+         Mail::to(config('laracarte.email_admin'))->send(new ContactMessageCreated($message));
         Flashy::primary('Nous vous répondrons dans les plus bref delais !');
         return redirect(route('home'));
     }
 
-    //ancien
-
-    // public function store(ContactFormRequest $request)
-    // {
-    //     $mailable = new ContactMessageCreated($request->name, $request->email, $request->message);
-    //     Mail::to(config('laracarte.email_admin'))->send($mailable);
-    //     Flashy::primary('Nous vous répondrons dans les plus bref delais !');
-    //     return redirect(route('home'));
-    //     // return $mailable->build();
-    // }
-     
 }

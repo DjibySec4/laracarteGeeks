@@ -8,3 +8,4 @@ class Message extends Model
 {
     public $guarded = [];
 }
+ 
